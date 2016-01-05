@@ -1,0 +1,35 @@
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1" id="admin-post">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Post Title</div>
+			<div class="panel-body">
+	 	 		<h2><%= @post.title %></h2>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">Post Thumb Image</div>
+			<div class="panel-body">
+	 	 		<%= image_tag @post.avatar.url, class: 'img-responsive post-avatar-img' %>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">Post Status</div>
+			<div class="panel-body">
+	 	 		<p><b>Publish:</b> <%= status_converter(@post.publish) %></p>
+	 	 		<p><b>Created at:</b> <%= @post.created_at.strftime("%B %d, %Y") %></p>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">Post Content</div>
+			<div class="panel-body">
+	 	 		<p><%= @post.content.html_safe %></p>
+				<hr>
+				<button class="btn btn-success"><%= link_to 'Edit', edit_admin_post_url %></button>
+                    <button class="btn btn-danger"><%= link_to 'Delete', admin_post_url, method: :delete, data: {confirm: 'Are you sure?'} %></button>
+			</div>
+			
+
+			
+		</div>
+
+</div>

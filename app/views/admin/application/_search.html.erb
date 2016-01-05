@@ -1,0 +1,6 @@
+<form class="form-inline" id="search">
+	<%= form_tag(route, method: :get) do %>
+	    <%= text_field_tag :search, "", class: 'form-control', id: 'search-bar' %>
+	    <%= submit_tag 'Search Post', class: 'btn btn-default' %>
+	<% end %>
+</form>

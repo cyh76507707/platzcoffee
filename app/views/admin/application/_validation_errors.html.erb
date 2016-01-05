@@ -1,0 +1,11 @@
+  <% if object.errors.any? %>
+    <div id="validation_errors" class="alert alert-warning alert-dismissble" role="alert">
+    <button type="button" class="close" data-dismiss="alert" arial-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h2><%= pluralize(object.errors.count, "error") %> should be fixed:</h2>
+      <ul>
+        <% object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>

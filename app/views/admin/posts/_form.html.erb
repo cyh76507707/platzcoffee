@@ -1,0 +1,29 @@
+
+
+<p><%= render 'validation_errors', object: @post %></p>
+
+<%= form_for [:admin, @post], :html => { :multipart => true } do |f| %>
+    <div class="field form-group">
+        <%= f.label :title %><br />
+        <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+        <%= f.label "Thumbnail Image" %><br />
+        <%= f.file_field :avatar, class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+        <%= f.label :content %><br />
+        <%= f.text_field :content, class: 'form-control', rows: '30' %>
+    </div>
+    <div class="field form-group checkbox-area">
+        <%= f.check_box :publish, class: 'btn-checkbox' %>
+        <%= f.label "Publish this post" %>
+    </div>
+
+    <div class="actions form-group">
+        <p><%= f.submit "Submit", class: 'btn btn-primary' %></p>
+    </div>
+
+<% end %>
+
+

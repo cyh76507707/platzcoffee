@@ -1,0 +1,48 @@
+<!-- Blog Header -->
+<header class="intro-blog">
+    <div class="intro-blog-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 page-content">
+                    <h1 class="blog-bg-heading">ROAST &amp; BREW YOUR DAYS SPECIAL</h1>
+                    <h3 class="blog-bg-sub-heading">PLATZ BLOG</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Blog Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <% @posts.each do |post| %>
+                <div class="post-preview">
+                    <%= link_to post_path(post) do %>
+                        <h2 class="post-preview-title">
+                            <%= truncate(post.title, length: 60, seperate: '') %>
+                        </h2>
+                        <%= image_tag post.avatar.url, class: 'post-img' %>
+                        <h3 class="post-preview-content">
+                            <%= truncate(strip_tags(post.content), length: 120, seperate: '') %>
+                        </h3>
+                    <% end %>
+                    <p class="post-meta"><%= post.created_at.strftime("%B %d, %Y") %></p>
+                </div>
+                <hr>
+                
+            <% end %>            
+            <p><%= paginate @posts %></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <p>platzcoffee@gmail.com | 031.214.0726 | 010.2555.0698</p>
+        <p>Copyright &copy; Platz Coffee 2016</p>
+    </div>
+</footer>
